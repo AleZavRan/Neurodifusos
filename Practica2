@@ -1,0 +1,72 @@
+figure('Name','Función de Membresía Trapezoidal');
+%subplot(2,3,1);
+x=[0:0.01:10];
+y=arrayfun(@(x)MFTrap(0,10,1,3,5,6,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,y,'r');
+xlabel('Espacio de Discurso');
+ylabel('uA(x)');
+%legend('x')
+% %hold on;
+% 
+figure('Name','Función de Membresía Trapezoidal');
+%subplot(2,3,1);
+x=[0:0.01:10];
+y1=arrayfun(@(x)MFTrap(0,10,5,7,9,10,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,y,'b');
+xlabel('Espacio de Discurso');
+ylabel('uB(x)');
+
+
+or=min(y,y1);
+figure('Name','or min');
+%subplot(2,3,1);
+x=[0:0.01:10];
+%y=arrayfun(@(x)MFTrap(0,10,3,3,7,7,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,or,'g');
+xlabel('Espacio de Discurso');
+ylabel('uAnB(x)');
+
+or=(y.*y1);
+figure('Name','OR producto');
+%subplot(2,3,1);
+x=[0:0.01:10];
+%y=arrayfun(@(x)MFTrap(0,10,3,3,7,7,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,or,'g');
+xlabel('Espacio de Discurso');
+ylabel('uAnB(x)');
+
+
+uni=max(y,y1);
+figure('Name','and max');
+%subplot(2,3,1);
+x=[0:0.01:10];
+%y=arrayfun(@(x)MFTrap(0,10,3,3,7,7,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,uni,'g');
+xlabel('Espacio de Discurso');
+ylabel('uAuB(x)');
+
+
+Uni=y+y1-(y.*y1);
+figure('Name','and resta producto');
+%subplot(2,3,1);
+x=[0:0.01:10];
+%y=arrayfun(@(x)MFTrap(0,10,3,3,7,7,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,Uni,'g');
+xlabel('Espacio de Discurso');
+ylabel('uAvB(x)');
+
+not=1-y;
+figure('Name','not');
+%subplot(2,3,1);
+x=[0:0.01:10];
+%y=arrayfun(@(x)MFTrap(0,10,3,3,7,7,x),0:0.01:10);
+%y=arrayfun(@(x)MFGauss(0,10,4,6,1,1,x),0:0.01:10);
+plot(x,not,'g');
+xlabel('Espacio de Discurso');
+ylabel('uAc(x)');
